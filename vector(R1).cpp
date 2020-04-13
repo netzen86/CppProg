@@ -48,10 +48,13 @@ class Object
 
 int main()
 {
-    // Create our class an add a few ints
-    int addNum = 0;
-    Object obj;
-    obj.DisplayVectorContents();
-    obj.DisplayAverageVectorContents();
+    Object c_arry1;
+    c_arry1.DisplayVectorContents();
+    c_arry1.DisplayAverageVectorContents();
+
+    Object c_arry2;
+    c_arry2.DisplayVectorContents();
+    c_arry2.DisplayAverageVectorContents();
+
     return 0;
 }
