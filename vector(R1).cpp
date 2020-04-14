@@ -1,18 +1,21 @@
 #include <iostream>
 
+
 class Object
 {
     public:
         Object()
         {
-            FillVectorContents();
+//            FillVectorContents();
         }
         ~Object()
         {
-            delete[] VECTOR;
+//            delete[] VECTOR;
         }
         int arryLen = 5;
-        int *VECTOR = new int[arryLen];
+        std::string arrayName = "";
+
+        int* VECTOR = new int[arryLen];
 
         void  FillVectorContents()
         {
@@ -36,7 +39,7 @@ class Object
 
         void DisplayVectorContents()
         {
-            std::cout << std::endl;
+            std::cout << "\nArray " << arrayName << ": ";
             for( unsigned int i = 0; i < arryLen; i++ )
             {
                 std::cout << VECTOR[i] << ", ";
@@ -47,13 +50,20 @@ class Object
 
 int main()
 {
-    Object c_arry1;
-    c_arry1.DisplayVectorContents();
-    c_arry1.DisplayAverageVectorContents();
+    int ArrayA[5] = {1,2,3,4,5};
+    int ArrayB[5] = {23,23,24,25,26};
 
-    Object c_arry2;
-    c_arry2.DisplayVectorContents();
-    c_arry2.DisplayAverageVectorContents();
+    Object c_arryA;
+    c_arryA.arrayName = "A";
+    c_arryA.VECTOR = ArrayA;
+    c_arryA.DisplayVectorContents();
+    c_arryA.DisplayAverageVectorContents();
+
+    Object c_arryB;
+    c_arryB.arrayName = "B";
+    c_arryB.VECTOR = ArrayB;
+    c_arryB.DisplayVectorContents();
+    c_arryB.DisplayAverageVectorContents();
 
     return 0;
 }
