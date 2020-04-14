@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 class Object
 {
@@ -18,7 +17,7 @@ class Object
         void  FillVectorContents()
         {
             int addNum = 0;
-            for (int i = 0; i < 5; ++i) {
+            for (int i = 0; i < arryLen; ++i) {
             std::cout << "Input Element " << i+1 << ": ";
             std::cin >> addNum;
             VECTOR[i] = addNum;
@@ -40,7 +39,7 @@ class Object
             std::cout << std::endl;
             for( unsigned int i = 0; i < arryLen; i++ )
             {
-                std::cout << "Element[" << i << "] = " << VECTOR[i] << std::endl;
+                std::cout << VECTOR[i] << ", ";
             }
             std::cout << std::endl;
         }
