@@ -1,28 +1,30 @@
 #include <iostream>
-#include <vector>
+
 
 class Object
 {
     public:
         Object()
         {
-            FillVectorContents();
         }
         ~Object()
         {
             delete[] VECTOR;
         }
         int arryLen = 5;
-        int *VECTOR = new int[arryLen];
+        int tos = 0;
+        std::string arrayName = "";
 
-        void  FillVectorContents()
+        int* VECTOR = new int[arryLen];
+
+        void FillVectorContents(int v)
         {
-            int addNum = 0;
-            for (int i = 0; i < 5; ++i) {
-            std::cout << "Input Element " << i+1 << ": ";
-            std::cin >> addNum;
-            VECTOR[i] = addNum;
+            if (tos == arryLen) {
+                std::cout << "Array " << arrayName << "full";
+                return;
             }
+            VECTOR[tos] = v;
+            tos++;
         }
 
          void DisplayAverageVectorContents()
@@ -37,10 +39,10 @@ class Object
 
         void DisplayVectorContents()
         {
-            std::cout << std::endl;
+            std::cout << "\nArray " << arrayName << ": ";
             for( unsigned int i = 0; i < arryLen; i++ )
             {
-                std::cout << "Element[" << i << "] = " << VECTOR[i] << std::endl;
+                std::cout << VECTOR[i] << ", ";
             }
             std::cout << std::endl;
         }
@@ -48,13 +50,29 @@ class Object
 
 int main()
 {
-    Object c_arry1;
-    c_arry1.DisplayVectorContents();
-    c_arry1.DisplayAverageVectorContents();
+/*
+    int ArrayA[5] = {1,2,3,4,5};
+    int ArrayB[5] = {23,23,24,25,26};
+*/
+    Object c_arryA;
+    c_arryA.arrayName = "A";
+    c_arryA.FillVectorContents(33);
+    c_arryA.FillVectorContents(34);
+    c_arryA.FillVectorContents(33);
+    c_arryA.FillVectorContents(56);
+    c_arryA.FillVectorContents(35);
+    c_arryA.DisplayVectorContents();
+    c_arryA.DisplayAverageVectorContents();
 
-    Object c_arry2;
-    c_arry2.DisplayVectorContents();
-    c_arry2.DisplayAverageVectorContents();
+    Object c_arryB;
+    c_arryB.arrayName = "B";
+    c_arryB.FillVectorContents(1);
+    c_arryB.FillVectorContents(2);
+    c_arryB.FillVectorContents(3);
+    c_arryB.FillVectorContents(4);
+    c_arryB.FillVectorContents(5);
+    c_arryB.DisplayVectorContents();
+    c_arryB.DisplayAverageVectorContents();
 
     return 0;
 }
