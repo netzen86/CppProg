@@ -6,25 +6,25 @@ class Object
     public:
         Object()
         {
-//            FillVectorContents();
         }
         ~Object()
         {
-//            delete[] VECTOR;
+            delete[] VECTOR;
         }
         int arryLen = 5;
+        int tos = 0;
         std::string arrayName = "";
 
         int* VECTOR = new int[arryLen];
 
-        void  FillVectorContents()
+        void FillVectorContents(int v)
         {
-            int addNum = 0;
-            for (int i = 0; i < arryLen; ++i) {
-            std::cout << "Input Element " << i+1 << ": ";
-            std::cin >> addNum;
-            VECTOR[i] = addNum;
+            if (tos == arryLen) {
+                std::cout << "Array " << arrayName << "full";
+                return;
             }
+            VECTOR[tos] = v;
+            tos++;
         }
 
          void DisplayAverageVectorContents()
@@ -50,18 +50,27 @@ class Object
 
 int main()
 {
+/*
     int ArrayA[5] = {1,2,3,4,5};
     int ArrayB[5] = {23,23,24,25,26};
-
+*/
     Object c_arryA;
     c_arryA.arrayName = "A";
-    c_arryA.VECTOR = ArrayA;
+    c_arryA.FillVectorContents(33);
+    c_arryA.FillVectorContents(34);
+    c_arryA.FillVectorContents(33);
+    c_arryA.FillVectorContents(56);
+    c_arryA.FillVectorContents(35);
     c_arryA.DisplayVectorContents();
     c_arryA.DisplayAverageVectorContents();
 
     Object c_arryB;
     c_arryB.arrayName = "B";
-    c_arryB.VECTOR = ArrayB;
+    c_arryB.FillVectorContents(1);
+    c_arryB.FillVectorContents(2);
+    c_arryB.FillVectorContents(3);
+    c_arryB.FillVectorContents(4);
+    c_arryB.FillVectorContents(5);
     c_arryB.DisplayVectorContents();
     c_arryB.DisplayAverageVectorContents();
 
