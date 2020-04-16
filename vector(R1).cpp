@@ -1,78 +1,75 @@
 #include <iostream>
 
 
-class Object
+class cVECTOR // определяем класс cVECTOR
 {
     public:
-        Object()
+        cVECTOR() // конструктор
         {
         }
-        ~Object()
+        ~cVECTOR() // деструктор
         {
-            delete[] VECTOR;
+            delete[] aVECTOR; // уаляем массив aVECTOR из динамической памяти
         }
-        int arryLen = 5;
-        int tos = 0;
-        std::string arrayName = "";
 
-        int* VECTOR = new int[arryLen];
+        int arrayLen = 5; // длинна массива aVECTOR- переменная
+        int tos = 0; // счетчик для определения заполнения массива aVECTOR - переменная
+        std::string arrayName = ""; // имя массива - переменная
+        int* aVECTOR = new int[arrayLen]; // определяем массив aVECTOR в динамической памяти
 
-        void FillVectorContents(int v)
+        void FillVectorContents(int v) // функция для заполнения массива aVECTOR значениями
         {
-            if (tos == arryLen) {
-                std::cout << "Array " << arrayName << "full";
-                return;
+            if (tos == arrayLen) {                                  // условие для 
+                std::cout << "\nArray" << arrayName << " full\n";   // проверки заполняемости 
+                return;                                             // массива aVECTOR
             }
-            VECTOR[tos] = v;
-            tos++;
+            aVECTOR[tos] = v; // присваивание значения эленту массива
+            tos++; // счетчик для движения по элементам массива
         }
 
-         void DisplayAverageVectorContents()
+        void DisplayVectorContents() //функция для вывода на экран значений массива aVECTOR
+        {
+            std::cout << "\nArray " << arrayName << ": "; // печать симфола ввод
+            for(int i = 0; i < arrayLen; i++ ) // цикл для перебора массива aVECTOR 
+            {
+                std::cout << aVECTOR[i] << ", "; // вывод на экран элементов массива aVECTOR
+            }
+            std::cout << std::endl; // печать симфола ввод
+        }
+
+         void DisplayAverageVectorContents() // фунцкия для расчета среднего арфметическго элеметов массива aVECTOR
         {
             float sum = 0.0;    // переменная для суммы чисел в массиве
-            for (int i = 0; i < arryLen; i++) {
-            sum += VECTOR[i];  // накапливаем сумму
+            for (int i = 0; i < arrayLen; i++) { // цикл для перебора массива aVECTOR 
+            sum += aVECTOR[i];  // накапливаем сумму
             }
-            float ave = sum / arryLen;  // вычисляем среднее арифметическое
-            std::cout << "\nArithmetical mean = " << ave << "\n" << std::endl;
+            float ave = sum / arrayLen;  // вычисляем среднее арифметическое
+            std::cout << "\nArithmetical mean = " << ave << "\n" << std::endl; // вывод на экран среднего арифметического массива aVECTOR
         } 
-
-        void DisplayVectorContents()
-        {
-            std::cout << "\nArray " << arrayName << ": ";
-            for( unsigned int i = 0; i < arryLen; i++ )
-            {
-                std::cout << VECTOR[i] << ", ";
-            }
-            std::cout << std::endl;
-        }
 };
 
-int main()
+int main() // определяем функцию main
 {
-/*
-    int ArrayA[5] = {1,2,3,4,5};
-    int ArrayB[5] = {23,23,24,25,26};
-*/
-    Object c_arryA;
-    c_arryA.arrayName = "A";
-    c_arryA.FillVectorContents(33);
-    c_arryA.FillVectorContents(34);
-    c_arryA.FillVectorContents(33);
-    c_arryA.FillVectorContents(56);
-    c_arryA.FillVectorContents(35);
-    c_arryA.DisplayVectorContents();
-    c_arryA.DisplayAverageVectorContents();
 
-    Object c_arryB;
-    c_arryB.arrayName = "B";
-    c_arryB.FillVectorContents(1);
-    c_arryB.FillVectorContents(2);
-    c_arryB.FillVectorContents(3);
-    c_arryB.FillVectorContents(4);
-    c_arryB.FillVectorContents(5);
-    c_arryB.DisplayVectorContents();
-    c_arryB.DisplayAverageVectorContents();
+    cVECTOR c_arrayA; // используя класс cVECTOR создаем объект c_arrayA
+    c_arrayA.arrayName = "A"; // присваиваем имя массиву
+    c_arrayA.FillVectorContents(33); // присваиваем значение элементу 0 масива A
+    c_arrayA.FillVectorContents(34); // присваиваем значение элементу 1 масива A
+    c_arrayA.FillVectorContents(33); // присваиваем значение элементу 2 масива A
+    c_arrayA.FillVectorContents(56); // присваиваем значение элементу 3 масива A
+    c_arrayA.FillVectorContents(35); // присваиваем значение элементу 4 масива A
+    c_arrayA.DisplayVectorContents(); // вывод на экран элементов массива A
+    c_arrayA.DisplayAverageVectorContents(); // вывод на экран среднего арифметического массива A
+
+    cVECTOR c_arrayB; // используя класс cVECTOR создаем объект c_arrayB
+    c_arrayB.arrayName = "B"; // присваиваем имя массиву
+    c_arrayB.FillVectorContents(1); // присваиваем значение элементу 0 масива B
+    c_arrayB.FillVectorContents(2); // присваиваем значение элементу 1 масива B
+    c_arrayB.FillVectorContents(3); // присваиваем значение элементу 2 масива B
+    c_arrayB.FillVectorContents(4); // присваиваем значение элементу 3 масива B
+    c_arrayB.FillVectorContents(5); // присваиваем значение элементу 4 масива B
+    c_arrayB.DisplayVectorContents(); // вывод на экран элементов массива B
+    c_arrayB.DisplayAverageVectorContents();  // вывод на экран среднего арифметического массива B
 
     return 0;
 }
