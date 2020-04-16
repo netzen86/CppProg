@@ -1,5 +1,5 @@
 #include <iostream>
-
+using namespace std;
 
 class cVECTOR // определяем класс cVECTOR
 {
@@ -10,6 +10,7 @@ class cVECTOR // определяем класс cVECTOR
         ~cVECTOR() // деструктор
         {
             delete[] aVECTOR; // уаляем массив aVECTOR из динамической памяти
+            cout << "clear dynamic memory" << endl;
         }
 
         int arrayLen = 5; // длинна массива aVECTOR- переменная
@@ -19,12 +20,11 @@ class cVECTOR // определяем класс cVECTOR
 
         void FillVectorContents(int v) // функция для заполнения массива aVECTOR значениями
         {
-            if (tos == arrayLen) {                                  // условие для 
-                std::cout << "\nArray" << arrayName << " full\n";   // проверки заполняемости 
-                return;                                             // массива aVECTOR
+            while (tos < arrayLen) {
+                aVECTOR[tos] = v; // присваивание значения эленту массива
+                v++; // счетчик для присваивания значения эленту массива
+                tos++; // счетчик для движения по элементам массива
             }
-            aVECTOR[tos] = v; // присваивание значения эленту массива
-            tos++; // счетчик для движения по элементам массива
         }
 
         void DisplayVectorContents() //функция для вывода на экран значений массива aVECTOR
@@ -53,21 +53,13 @@ int main() // определяем функцию main
 
     cVECTOR c_arrayA; // используя класс cVECTOR создаем объект c_arrayA
     c_arrayA.arrayName = "A"; // присваиваем имя массиву
-    c_arrayA.FillVectorContents(33); // присваиваем значение элементу 0 масива A
-    c_arrayA.FillVectorContents(34); // присваиваем значение элементу 1 масива A
-    c_arrayA.FillVectorContents(33); // присваиваем значение элементу 2 масива A
-    c_arrayA.FillVectorContents(56); // присваиваем значение элементу 3 масива A
-    c_arrayA.FillVectorContents(35); // присваиваем значение элементу 4 масива A
+    c_arrayA.FillVectorContents(600); // присваиваем начальное значение элементу 0 масива A
     c_arrayA.DisplayVectorContents(); // вывод на экран элементов массива A
     c_arrayA.DisplayAverageVectorContents(); // вывод на экран среднего арифметического массива A
 
     cVECTOR c_arrayB; // используя класс cVECTOR создаем объект c_arrayB
     c_arrayB.arrayName = "B"; // присваиваем имя массиву
-    c_arrayB.FillVectorContents(1); // присваиваем значение элементу 0 масива B
-    c_arrayB.FillVectorContents(2); // присваиваем значение элементу 1 масива B
-    c_arrayB.FillVectorContents(3); // присваиваем значение элементу 2 масива B
-    c_arrayB.FillVectorContents(4); // присваиваем значение элементу 3 масива B
-    c_arrayB.FillVectorContents(5); // присваиваем значение элементу 4 масива B
+    c_arrayB.FillVectorContents(58); // присваиваем начальное значение элементу 0 масива B
     c_arrayB.DisplayVectorContents(); // вывод на экран элементов массива B
     c_arrayB.DisplayAverageVectorContents();  // вывод на экран среднего арифметического массива B
 
