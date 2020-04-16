@@ -15,7 +15,7 @@ class cVECTOR // определяем класс cVECTOR
 
         int arrayLen = 5; // длинна массива aVECTOR- переменная
         int tos = 0; // счетчик для определения заполнения массива aVECTOR - переменная
-        std::string arrayName = ""; // имя массива - переменная
+        string arrayName = ""; // имя массива - переменная
         int* aVECTOR = new int[arrayLen]; // определяем массив aVECTOR в динамической памяти
 
         void FillVectorContents(int v) // функция для заполнения массива aVECTOR значениями
@@ -29,12 +29,12 @@ class cVECTOR // определяем класс cVECTOR
 
         void DisplayVectorContents() //функция для вывода на экран значений массива aVECTOR
         {
-            std::cout << "\nArray " << arrayName << ": "; // печать симфола ввод
+            cout << "\nArray " << arrayName << ": "; // печать симфола ввод
             for(int i = 0; i < arrayLen; i++ ) // цикл для перебора массива aVECTOR 
             {
-                std::cout << aVECTOR[i] << ", "; // вывод на экран элементов массива aVECTOR
+                cout << aVECTOR[i] << ", "; // вывод на экран элементов массива aVECTOR
             }
-            std::cout << std::endl; // печать симфола ввод
+            cout << endl; // печать симфола ввод
         }
 
          void DisplayAverageVectorContents() // фунцкия для расчета среднего арфметическго элеметов массива aVECTOR
@@ -44,7 +44,7 @@ class cVECTOR // определяем класс cVECTOR
             sum += aVECTOR[i];  // накапливаем сумму
             }
             float ave = sum / arrayLen;  // вычисляем среднее арифметическое
-            std::cout << "\nArithmetical mean = " << ave << "\n" << std::endl; // вывод на экран среднего арифметического массива aVECTOR
+            cout << "\nArithmetical mean = " << ave << "\n" << endl; // вывод на экран среднего арифметического массива aVECTOR
         } 
 };
 
