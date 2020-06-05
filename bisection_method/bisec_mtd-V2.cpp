@@ -5,7 +5,7 @@ using namespace std;
  
 double f(double x)
 {
-   return exp(pow(sin(x),2)); // данное уравнение
+   return exp(pow(sin(x),2)); // данное уравнение; exp - экспонента (2,718281828); pow - возведение в степень
 }
 
 const double PI = 3.14159265; // определяем число ПИ

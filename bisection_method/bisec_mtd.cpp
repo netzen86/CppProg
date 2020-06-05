@@ -4,7 +4,7 @@ using namespace std;
 
 float mpd(float x) // functions mpd - "metod polovinnogo deleniya"
 {
-    return exp(pow(sin(x),2)); // (3*cos(2*x+4))
+    return exp(pow(sin(x),2)); // данное уравнение; exp - экспонента (2,718281828); pow - возведение в степень; (3*cos(2*x+4)) 
 }
 
 const double PI = 3.14159265; // определяем число ПИ
